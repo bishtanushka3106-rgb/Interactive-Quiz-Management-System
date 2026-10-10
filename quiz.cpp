@@ -127,20 +127,21 @@ void loadQuestions() {
 
 void displayQuestions() {
     loadQuestions();
-
-    cout << "\n--- DSA Question Bank ---\n";
-
-    for (int i = 0; i < (int)questions.size(); i++) {
-        cout << i + 1 << ". [" << questions[i].topic
-             << ", " << questions[i].difficulty << "] "
-             << questions[i].text << "\n";
-    }
+    questionBank.displayQuestions();
 }
+
 
 void startQuiz() {
     loadQuestions();
 
-    vector<int> order(questions.size());
+    vector<Question> allQuestions = questionBank.getAllQuestions();
+
+    if (allQuestions.size() < 10) {
+        cout << "Not enough questions to start the quiz.\n";
+        return;
+    }
+
+    vector<int> order(allQuestions.size());
 
     for (int i = 0; i < (int)order.size(); i++) {
         order[i] = i;
@@ -151,7 +152,7 @@ void startQuiz() {
     int score = 0;
 
     for (int n = 0; n < 10; n++) {
-        Question q = questions[order[n]];
+        Question q = allQuestions[order[n]];
 
         cout << "\nQuestion " << n + 1 << ": "
              << q.text << "\n";
@@ -165,22 +166,23 @@ void startQuiz() {
                 cout << "Correct!\n";
                 score++;
             } else {
-                cout << "Correct output: "
+                cout << "Incorrect. Correct output: "
                      << q.codeAnswer << "\n";
             }
         } else {
             shuffle(q.options.begin(), q.options.end(), rng);
 
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < (int)q.options.size(); i++) {
                 cout << i + 1 << ". "
                      << q.options[i].text << "\n";
             }
 
             int answer;
-            cout << "Choose 1-4: ";
+            cout << "Choose an option: ";
             cin >> answer;
 
-            if (answer >= 1 && answer <= 4 &&
+            if (answer >= 1 &&
+                answer <= (int)q.options.size() &&
                 q.options[answer - 1].correct) {
                 cout << "Correct!\n";
                 score++;
