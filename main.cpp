@@ -1,4 +1,7 @@
+```cpp
 #include <iostream>
+#include "quiz.h"
+
 using namespace std;
 
 int main() {
@@ -13,31 +16,31 @@ int main() {
         cout << "3. Exit\n";
         cout << "Enter your choice: ";
 
-   cin >> choice;
-      
-      switch (choice) {
+        cin >> choice;
+
+        switch (choice) {
             case 1:
                 cout << "\n--- Student Menu ---\n";
                 cout << "Welcome, Student!\n";
-                cout << "Quiz module will be added next.\n";
+                startQuiz();
                 break;
 
             case 2:
                 cout << "\n--- Admin Menu ---\n";
                 cout << "Welcome, Admin!\n";
-                cout << "Question management will be added next.\n";
+                displayQuestions();
                 break;
 
             case 3:
                 cout << "\nThank you for using the system!\n";
                 break;
 
-        default:
+            default:
                 cout << "\nInvalid choice. Please enter 1, 2, or 3.\n";
         }
 
-     } 
-      while (choice != 3);
+    } while (choice != 3);
 
     return 0;
 }
+```
