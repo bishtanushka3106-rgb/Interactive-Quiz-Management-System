@@ -5,6 +5,3 @@ void startQuiz();
 void displayQuestions();
 
 #endif
-
-
-#
