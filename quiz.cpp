@@ -4,6 +4,7 @@ include <iostream>
 #include <algorithm>
 #include <random>
 #include "quiz.h"
+#include "question_bank.h"
 
 using namespace std;
 
@@ -16,7 +17,7 @@ struct Question {
     string topic;
     string difficulty;
     string text;
-    vector<Option> options;
+    QuestionBank questionBank;
     string codeAnswer;
     string explanation;
     bool isCode;
@@ -39,7 +40,7 @@ void addMCQ(string topic, string difficulty,
         q.options.push_back({options[i], i == correct});
     }
 
-    questions.push_back(q);
+    questionBank.addQuestion(q);
 }
 
 void addCodeQuestion(string topic, string difficulty,
@@ -56,6 +57,11 @@ void addCodeQuestion(string topic, string difficulty,
 }
 
 void loadQuestions() {
+   static bool loaded = false;
+    
+       if (loaded) return;
+        loaded = true;
+    
     addMCQ("Stack", "Easy",
         "PUSH(10), PUSH(20), PUSH(30), POP(). "
         "What remains from bottom to top?",
