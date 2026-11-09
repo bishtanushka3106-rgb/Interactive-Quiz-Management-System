@@ -1,0 +1,25 @@
+CXX      ?= g++
+CXXFLAGS ?= -std=c++17 -O2 -Wall -Wextra
+LDFLAGS  ?= -pthread
+
+all: quiz_server quiz_cli
+
+quiz_server: server.o question_bank.o quiz.o
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
+
+quiz_cli: main.o question_bank.o quiz.o
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
+
+server.o: server.cpp question_bank.h quiz.h httplib.h json.hpp
+	$(CXX) $(CXXFLAGS) -c server.cpp -o $@
+
+%.o: %.cpp question_bank.h quiz.h
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+run: quiz_server
+	./quiz_server
+
+clean:
+	rm -f *.o quiz_server quiz_cli
+
+.PHONY: all run clean
