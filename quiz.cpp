@@ -8,22 +8,7 @@
 
 using namespace std;
 
-struct Option {
-    string text;
-    bool correct;
-};
-
-struct Question {
-    string topic;
-    string difficulty;
-    string text;
-    QuestionBank questionBank;
-    string codeAnswer;
-    string explanation;
-    bool isCode;
-};
-
-vector<Question> questions;
+QuestionBank questionBank;
 mt19937 rng(random_device{}());
 
 void addMCQ(string topic, string difficulty,
@@ -53,7 +38,7 @@ void addCodeQuestion(string topic, string difficulty,
     q.codeAnswer = answer;
     q.explanation = explanation;
     q.isCode = true;
-    questions.push_back(q);
+    questionBank.addQuestion(q);
 }
 
 void loadQuestions() {
@@ -123,6 +108,10 @@ void loadQuestions() {
         "swap(a[1],a[2]); cout << a[0] << a[1] "
         "<< a[2]; Output?",
         "123", "The array becomes 1, 2, 3.");
+}
+
+QuestionBank& getQuestionBank() {
+    return questionBank;
 }
 
 void displayQuestions() {
