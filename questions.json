@@ -1,0 +1,201 @@
+[
+  {
+    "topic": "Stack",
+    "difficulty": "Easy",
+    "text": "PUSH(10), PUSH(20), PUSH(30), POP(). What remains from bottom to top?",
+    "isCode": false,
+    "explanation": "POP removes 30, leaving 10 and 20.",
+    "options": [
+      {
+        "text": "10, 20",
+        "correct": true
+      },
+      {
+        "text": "20, 30",
+        "correct": false
+      },
+      {
+        "text": "10, 30",
+        "correct": false
+      },
+      {
+        "text": "30, 20",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "topic": "Queue",
+    "difficulty": "Easy",
+    "text": "ENQUEUE(5), ENQUEUE(10), ENQUEUE(15), DEQUEUE(). What remains from front to rear?",
+    "isCode": false,
+    "explanation": "DEQUEUE removes 5.",
+    "options": [
+      {
+        "text": "10, 15",
+        "correct": true
+      },
+      {
+        "text": "5, 10",
+        "correct": false
+      },
+      {
+        "text": "15, 10",
+        "correct": false
+      },
+      {
+        "text": "5, 15",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "topic": "Linked List",
+    "difficulty": "Easy",
+    "text": "List: 10 -> 20 -> 30. Insert 15 after 10, then delete 20. What is the final list?",
+    "isCode": false,
+    "explanation": "The final list is 10 -> 15 -> 30.",
+    "options": [
+      {
+        "text": "10 -> 15 -> 30",
+        "correct": true
+      },
+      {
+        "text": "10 -> 20 -> 15 -> 30",
+        "correct": false
+      },
+      {
+        "text": "15 -> 10 -> 30",
+        "correct": false
+      },
+      {
+        "text": "10 -> 30 -> 15",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "topic": "Searching",
+    "difficulty": "Medium",
+    "text": "Binary search on [2, 4, 6, 8, 10, 12, 14], using zero-based indices and mid=(low+high)/2. Which values are checked when searching for 10?",
+    "isCode": false,
+    "explanation": "The values checked are 8, then 12, then 10.",
+    "options": [
+      {
+        "text": "8, 12, 10",
+        "correct": true
+      },
+      {
+        "text": "8, 10",
+        "correct": false
+      },
+      {
+        "text": "6, 8, 10",
+        "correct": false
+      },
+      {
+        "text": "10, 8, 12",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "topic": "Sorting",
+    "difficulty": "Medium",
+    "text": "One left-to-right pass of Bubble Sort on [5, 1, 4, 2] in ascending order gives:",
+    "isCode": false,
+    "explanation": "The largest value, 5, moves to the end.",
+    "options": [
+      {
+        "text": "[1, 4, 2, 5]",
+        "correct": true
+      },
+      {
+        "text": "[1, 2, 4, 5]",
+        "correct": false
+      },
+      {
+        "text": "[5, 1, 2, 4]",
+        "correct": false
+      },
+      {
+        "text": "[1, 5, 4, 2]",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "topic": "Stack",
+    "difficulty": "Medium",
+    "text": "PUSH(4), PUSH(7), POP(), PUSH(9), POP(). What is the top element?",
+    "isCode": false,
+    "explanation": "The stack contains only 4.",
+    "options": [
+      {
+        "text": "4",
+        "correct": true
+      },
+      {
+        "text": "7",
+        "correct": false
+      },
+      {
+        "text": "9",
+        "correct": false
+      },
+      {
+        "text": "Empty",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "topic": "Queue",
+    "difficulty": "Hard",
+    "text": "A queue contains 10, 20, 30. Remove twice, then enqueue 40 and 50. What remains?",
+    "isCode": false,
+    "explanation": "The remaining queue is 30, 40, 50.",
+    "options": [
+      {
+        "text": "30, 40, 50",
+        "correct": true
+      },
+      {
+        "text": "10, 20, 30, 40, 50",
+        "correct": false
+      },
+      {
+        "text": "40, 50, 30",
+        "correct": false
+      },
+      {
+        "text": "30, 50, 40",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "topic": "Linked List",
+    "difficulty": "Hard",
+    "text": "Code: int a[]={10,20,30}; int* p=a; cout << *(p+1); What is the output?",
+    "isCode": true,
+    "explanation": "p+1 points to the second array element.",
+    "codeAnswer": "20"
+  },
+  {
+    "topic": "Searching",
+    "difficulty": "Medium",
+    "text": "Code: int a[]={3,6,9,12}; int i=0; while(a[i]!=9) i++; cout << i; Output?",
+    "isCode": true,
+    "explanation": "The value 9 is at zero-based index 2.",
+    "codeAnswer": "2"
+  },
+  {
+    "topic": "Sorting",
+    "difficulty": "Hard",
+    "text": "Code: int a[]={3,1,2}; swap(a[0],a[1]); swap(a[1],a[2]); cout << a[0] << a[1] << a[2]; Output?",
+    "isCode": true,
+    "explanation": "The array becomes 1, 2, 3.",
+    "codeAnswer": "123"
+  }
+]
